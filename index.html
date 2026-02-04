@@ -1,4 +1,79 @@
 <!DOCTYPE html>
 <html lang="ja">
-  ...
+<head>
+  <meta charset="UTF-8">
+  <title>トマトささみ 公式HP</title>
+
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+      text-align: center;
+      padding-top: 120px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 40px;
+      font-weight: normal;
+    }
+
+    input[type="text"] {
+      width: 260px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #000;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 8px 20px;
+      font-size: 14px;
+      border: 1px solid #000;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #eee;
+    }
+
+    p {
+      margin-top: 40px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>トマトささみ 公式HP</h1>
+
+  <input type="text" id="keyword" placeholder="検索してください">
+  <br>
+  <button onclick="search()">検索</button>
+
+  <p>
+    このサイトは<br>
+    仲良しサーバー「トマトささみ」の<br>
+    非公式まとめページです
+  </p>
+
+  <script>
+    function search() {
+      const input = document.getElementById("keyword").value.trim();
+
+      // ▼ 最初の正解キーワード（テスト用）
+      if (input === "みる") {
+        window.location.href = "pages/observe.html";
+      } else {
+        window.location.href = "error.html";
+      }
+    }
+  </script>
+
+</body>
 </html>
