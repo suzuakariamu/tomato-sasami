@@ -351,11 +351,9 @@
       return (s || "").trim().toLowerCase().replace(/\s+/g, "");
     }
 
-    function search(){
-      const input = normalize(document.getElementById("keyword").value);
-      if (input === "みる") {
-        window.location.href = "pages/observe.html";
-        return;
+function search(){
+  const input = normalize(document.getElementById("keyword").value);
+  location.href = "results.html?q=" + encodeURIComponent(input);
       }
       window.location.href = "error.html";
     }
