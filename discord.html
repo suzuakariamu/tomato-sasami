@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>トマトささみ 公式HP</title>
+  <title>ディスコード｜トマトささみ 公式HP</title>
 
   <style>
     :root{
@@ -18,6 +18,7 @@
     }
 
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
       font-family: var(--font-main);
@@ -27,324 +28,237 @@
 
     header{
       background:#fff;
-      border-bottom: 1px solid #ddd;
+      border-bottom:1px solid #ddd;
     }
     .header-inner{
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 18px 18px 12px;
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:18px 18px 12px;
       display:flex;
       align-items:center;
+      justify-content:space-between;
       gap:16px;
-      justify-content: space-between;
     }
     .brand{
       display:flex;
       align-items:baseline;
       gap:10px;
-      min-width: 260px;
     }
     .brand .title{
-      font-size: 26px;
-      letter-spacing: 0.08em;
-      font-weight: 700;
+      font-size:26px;
+      letter-spacing:.08em;
+      font-weight:700;
     }
     .brand .subtitle{
-      font-size: 12px;
-      opacity: 0.75;
-      letter-spacing: 0.06em;
+      font-size:12px;
+      opacity:.75;
+      letter-spacing:.06em;
     }
 
     .search-wrap{
       display:flex;
-      align-items:center;
       gap:8px;
-      width: min(520px, 100%);
-      justify-content:flex-end;
+      align-items:center;
     }
     .search-wrap input{
-      width: 360px;
-      max-width: 55vw;
-      padding: 10px 12px;
-      border: 1px solid var(--accent);
-      outline: none;
-      font-size: 14px;
-      background:#fff;
-      font-family: var(--font-main);
+      width:360px;
+      max-width:55vw;
+      padding:10px 12px;
+      border:1px solid var(--accent);
+      font-size:14px;
+      font-family:var(--font-main);
     }
     .search-wrap button{
-      padding: 10px 14px;
-      border: 1px solid var(--accent);
-      background: var(--accent);
+      padding:10px 14px;
+      border:1px solid var(--accent);
+      background:var(--accent);
       color:#fff;
       cursor:pointer;
-      font-size: 14px;
-      white-space: nowrap;
-      font-family: var(--font-main);
+      font-size:14px;
+      font-family:var(--font-main);
     }
-    .search-wrap button:hover{ opacity: .9; }
 
     nav{
-      background: var(--band);
-      border-top: 1px solid #cfe2c8;
-      border-bottom: 1px solid #cfe2c8;
+      background:var(--band);
+      border-top:1px solid #cfe2c8;
+      border-bottom:1px solid #cfe2c8;
     }
     .nav-inner{
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 0 18px;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: center;
-      height: 52px;
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:0 18px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:52px;
+      gap:10px;
     }
     .nav-inner a{
       text-decoration:none;
       color:#0f2a0f;
-      padding: 10px 14px;
-      border-right: 1px solid rgba(0,0,0,0.12);
-      font-size: 14px;
-      letter-spacing: .04em;
-      font-family: var(--font-main);
+      padding:10px 14px;
+      border-right:1px solid rgba(0,0,0,.12);
+      font-size:14px;
+      font-family:var(--font-main);
     }
     .nav-inner a:last-child{ border-right:none; }
-    .nav-inner a:hover{ opacity:.75; }
 
     main{
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 18px;
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:18px;
     }
 
-    .notice{
-      display:flex;
-      align-items:center;
-      border: 1px solid var(--accent);
+    .page-title{
       background:#fff;
-      margin: 16px 0 22px;
+      border:1px solid var(--line);
+      padding:18px;
+      margin-bottom:18px;
     }
-    .notice .label{
-      min-width: 110px;
+    .page-title h2{
+      margin:0 0 8px;
+      font-size:22px;
+      letter-spacing:.06em;
+    }
+    .page-title p{
+      margin:0;
+      font-size:13px;
+      opacity:.8;
+      line-height:1.8;
+    }
+
+    .discord-box{
+      background:#fff;
+      border:1px solid var(--line);
+      padding:28px 18px;
       text-align:center;
-      padding: 10px 12px;
-      background: var(--accent);
-      color:#fff;
-      font-size: 13px;
-      letter-spacing: .08em;
     }
-    .notice .body{
-      padding: 10px 14px;
-      font-size: 13px;
-      line-height: 1.7;
-      width: 100%;
+    .discord-box p{
+      font-size:14px;
+      line-height:2;
+      margin-bottom:24px;
     }
-    .notice .body a{
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px dotted var(--accent);
-    }
-
-    .hero{
-      border: 1px solid var(--line);
-      background: #fff;
-      padding: 18px;
-    }
-    .hero .headline{
-      font-size: 26px;
-      letter-spacing: .06em;
-      margin: 4px 0 14px;
-    }
-    .hero .subline{
-      font-size: 13px;
-      opacity: .78;
-      margin-bottom: 14px;
-      line-height: 1.8;
-    }
-    .hero .img{
-      height: 320px;
-      border: 1px solid #ddd;
-      background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.0));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#666;
-      font-size: 13px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-    .card{
-      border: 1px solid var(--line);
-      background:#fff;
-      padding: 14px;
-    }
-    .card h3{
-      font-size: 14px;
-      margin: 4px 0 12px;
-      letter-spacing: .06em;
-      border-bottom: 2px solid #274d27;
-      padding-bottom: 8px;
-    }
-    .card .thumb{
-      height: 140px;
-      border: 1px solid #ddd;
-      background: #fafafa;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#777;
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-    .btn{
+    .discord-btn{
       display:inline-block;
-      width: 100%;
-      text-align:center;
-      padding: 10px 10px;
-      border: 1px solid #1f3f1f;
-      background: #fff;
+      padding:14px 28px;
+      border:1px solid #1f3f1f;
       color:#1f3f1f;
       text-decoration:none;
-      font-size: 13px;
-      font-family: var(--font-main);
+      font-size:14px;
+      letter-spacing:.08em;
     }
-    .btn:hover{ background:#f1f7f1; }
+    .discord-btn:hover{
+      background:#f1f7f1;
+    }
 
-    .yt{
-      border: 1px solid var(--line);
-      background:#fff;
-      padding: 14px;
+    .note{
+      margin-top:18px;
+      font-size:12px;
+      opacity:.75;
+      line-height:1.8;
     }
-    .yt h3{
-      font-size: 14px;
-      margin: 4px 0 10px;
-      letter-spacing: .06em;
-      border-bottom: 2px solid #274d27;
-      padding-bottom: 8px;
-    }
-    .yt .frame{
-      aspect-ratio: 16 / 9;
-      width: 100%;
-      border: 1px solid #ddd;
-      background:#000;
-    }
-    .yt iframe{ width: 100%; height: 100%; border: 0; }
 
     .progress{
-      text-align: right;
-      margin: 18px 4px 8px;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      color: #333;
-      font-family: var(--font-main);
+      text-align:right;
+      margin:18px 4px 8px;
+      font-size:12px;
+      letter-spacing:.08em;
+      color:#333;
+      font-family:var(--font-main);
     }
 
     footer{
-      margin-top: 28px;
-      background: var(--footer);
-      color: #fff;
+      margin-top:28px;
+      background:var(--footer);
+      color:#fff;
     }
     .footer-inner{
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 16px 18px;
-      font-size: 12px;
-      line-height: 1.8;
-      position: relative;
-      font-family: var(--font-main);
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:16px 18px;
+      font-size:12px;
+      line-height:1.8;
+      font-family:var(--font-main);
     }
 
-    @media (max-width: 920px){
-      .grid{ grid-template-columns: 1fr; }
-      .search-wrap input{ width: 52vw; }
+    @media(max-width:920px){
+      .search-wrap input{ width:52vw; }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="brand">
-        <div class="title">トマトささみ</div>
-        <div class="subtitle">公式HP</div>
-      </div>
-
-      <div class="search-wrap">
-        <input id="keyword" type="text" placeholder="検索キーワードを入力してください" />
-        <button onclick="search()">検索</button>
-      </div>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="title">トマトささみ</div>
+      <div class="subtitle">公式HP</div>
     </div>
 
-    <nav>
-      <div class="nav-inner">
-        <a href="./index.html">トップ</a>
-        <a href="./members.html">メンバー</a>
-        <a href="./schedule.html">スケジュール</a>
-        <a href="./discord.html">ディスコード</a>
-        <a href="./contact.html">お問い合わせ</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-<section class="page-title">
-      <h2>ディスコード</h2>
-      <p>
-        トマトささみの活動は、主にDiscordサーバー上で行われています。<br>
-      </p>
-    </section>
-
-    <section class="discord-wrap">
-      <p>
-        サーバーへの参加をご希望の方は、<br>
-        以下のリンクよりアクセスしてください。
-      </p>
-
-      <!-- ▼ 実際のDiscord招待URLに差し替え -->
-      <a class="discord-btn" href="https://discord.gg/XXXXXXXX" target="_blank" rel="noopener">
-        サーバーはこちら
-      </a>
-
-      <div class="note">
-        ※ サーバー内での発言・行動は、<br>
-        運営および管理の目的で記録される場合があります。
-      </div>
-    </section>
-
-    <div class="progress">4/108 (LV0)</div>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <small>
-        このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
-        実在の人物・団体とは一切関係がありません。
-      </small>
+    <div class="search-wrap">
+      <input id="keyword" type="text" placeholder="検索キーワードを入力してください">
+      <button onclick="search()">検索</button>
     </div>
-  </footer>
+  </div>
 
-  <script>
-    function normalize(s){
-      return (s || "").trim().toLowerCase().replace(/\s+/g, "");
-    }
+  <nav>
+    <div class="nav-inner">
+      <a href="./index.html">トップ</a>
+      <a href="./members.html">メンバー</a>
+      <a href="./schedule.html">スケジュール</a>
+      <a href="./discord.html">ディスコード</a>
+      <a href="./contact.html">お問い合わせ</a>
+    </div>
+  </nav>
+</header>
 
-    function search(){
-      const input = normalize(document.getElementById("keyword").value);
-      if (input === "みる") {
-        window.location.href = "pages/observe.html";
-        return;
-      }
-      window.location.href = "error.html";
-    }
+<main>
+  <section class="page-title">
+    <h2>ディスコード</h2>
+    <p>トマトささみの活動は、主にDiscordサーバー上で行われています。</p>
+  </section>
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") search();
-    });
-  </script>
+  <section class="discord-box">
+    <p>
+      サーバーへの参加をご希望の方は、<br>
+      以下のリンクよりアクセスしてください。
+    </p>
+
+    <!-- ▼ ここに実際の招待URLを入れる -->
+    <a class="discord-btn" href="https://discord.gg/XXXXXXXX" target="_blank">
+      サーバーはこちら
+    </a>
+
+    <div class="note">
+      ※ サーバー内での発言・行動は、<br>
+      運営および管理の目的で記録される場合があります。
+    </div>
+  </section>
+
+  <div class="progress">4/108 (LV0)</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <small>
+      このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
+      実在の人物・団体とは一切関係がありません。
+    </small>
+  </div>
+</footer>
+
+<script>
+  function normalize(s){
+    return (s||"").trim().toLowerCase().replace(/\s+/g,"");
+  }
+  function search(){
+    const input = normalize(document.getElementById("keyword").value);
+    if(input==="みる"){ location.href="pages/observe.html"; return; }
+    location.href="error.html";
+  }
+  document.addEventListener("keydown",e=>{
+    if(e.key==="Enter") search();
+  });
+</script>
 </body>
 </html>
