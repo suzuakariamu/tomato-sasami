@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ディスコード｜トマトささみ 公式HP</title>
+  <title>スケジュール｜トマトささみ 公式HP</title>
 
   <style>
     :root{
@@ -18,212 +18,199 @@
     }
 
     *{ box-sizing:border-box; }
-
     body{
       margin:0;
       font-family: var(--font-main);
       background: var(--bg);
       color: var(--text);
-
-      /* ★追加：フッターずれ防止 */
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     header{
       background:#fff;
-      border-bottom:1px solid #ddd;
+      border-bottom: 1px solid #ddd;
     }
     .header-inner{
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:18px 18px 12px;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 18px 18px 12px;
       display:flex;
       align-items:center;
-      justify-content:space-between;
       gap:16px;
+      justify-content: space-between;
     }
     .brand{
       display:flex;
       align-items:baseline;
       gap:10px;
+      min-width: 260px;
     }
     .brand .title{
-      font-size:26px;
-      letter-spacing:.08em;
-      font-weight:700;
+      font-size: 26px;
+      letter-spacing: 0.08em;
+      font-weight: 700;
     }
     .brand .subtitle{
-      font-size:12px;
-      opacity:.75;
-      letter-spacing:.06em;
+      font-size: 12px;
+      opacity: 0.75;
+      letter-spacing: 0.06em;
     }
 
     .search-wrap{
       display:flex;
-      gap:8px;
       align-items:center;
+      gap:8px;
+      width: min(520px, 100%);
+      justify-content:flex-end;
     }
     .search-wrap input{
-      width:360px;
-      max-width:55vw;
-      padding:10px 12px;
-      border:1px solid var(--accent);
-      font-size:14px;
-      font-family:var(--font-main);
+      width: 360px;
+      max-width: 55vw;
+      padding: 10px 12px;
+      border: 1px solid var(--accent);
+      outline: none;
+      font-size: 14px;
+      background:#fff;
+      font-family: var(--font-main);
     }
     .search-wrap button{
-      padding:10px 14px;
-      border:1px solid var(--accent);
-      background:var(--accent);
+      padding: 10px 14px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
       color:#fff;
       cursor:pointer;
-      font-size:14px;
-      font-family:var(--font-main);
+      font-size: 14px;
+      white-space: nowrap;
+      font-family: var(--font-main);
     }
+    .search-wrap button:hover{ opacity: .9; }
 
     nav{
-      background:var(--band);
-      border-top:1px solid #cfe2c8;
-      border-bottom:1px solid #cfe2c8;
+      background: var(--band);
+      border-top: 1px solid #cfe2c8;
+      border-bottom: 1px solid #cfe2c8;
     }
     .nav-inner{
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:0 18px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:52px;
-      gap:10px;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 18px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
     }
     .nav-inner a{
       text-decoration:none;
       color:#0f2a0f;
-      padding:10px 14px;
-      border-right:1px solid rgba(0,0,0,.12);
-      font-size:14px;
-      font-family:var(--font-main);
+      padding: 10px 14px;
+      border-right: 1px solid rgba(0,0,0,0.12);
+      font-size: 14px;
+      letter-spacing: .04em;
+      font-family: var(--font-main);
     }
     .nav-inner a:last-child{ border-right:none; }
+    .nav-inner a:hover{ opacity:.75; }
 
     main{
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:18px;
-
-      /* ★追加：余白をmainが吸う */
-      flex: 1;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 18px;
     }
 
     .page-title{
-      background:#fff;
-      border:1px solid var(--line);
-      padding:18px;
-      margin-bottom:18px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 18px;
+      margin: 10px 0 18px;
     }
     .page-title h2{
-      margin:0 0 8px;
-      font-size:22px;
-      letter-spacing:.06em;
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: .06em;
     }
     .page-title p{
-      margin:0;
-      font-size:13px;
-      opacity:.8;
-      line-height:1.8;
+      margin: 0;
+      font-size: 13px;
+      opacity: .8;
+      line-height: 1.8;
     }
 
-    .discord-box{
+    .calendar-wrap{
+      border: 1px solid var(--line);
       background:#fff;
-      border:1px solid var(--line);
-      padding:28px 18px;
-      text-align:center;
+      padding: 10px;
     }
-    .discord-box p{
-      font-size:14px;
-      line-height:2;
-      margin-bottom:24px;
+    .calendar-frame{
+      width: 100%;
+      height: 780px;
+      border: 0;
     }
-    .discord-btn{
-      display:inline-block;
-      padding:14px 28px;
-      border:1px solid #1f3f1f;
-      color:#1f3f1f;
-      text-decoration:none;
-      font-size:14px;
-      letter-spacing:.08em;
-    }
-    .discord-btn:hover{
-      background:#f1f7f1;
-    }
-
-    .note{
-      margin-top:18px;
-      font-size:12px;
-      opacity:.75;
-      line-height:1.8;
+    @media (max-width: 700px){
+      .calendar-frame{ height: 680px; }
     }
 
     .progress{
-      text-align:right;
-      margin:18px 4px 8px;
-      font-size:12px;
-      letter-spacing:.08em;
-      color:#333;
-      font-family:var(--font-main);
+      text-align: right;
+      margin: 18px 4px 8px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #333;
+      font-family: var(--font-main);
     }
 
     footer{
-      /* ★重要：margin-topは0にする */
-      margin-top: 0;
-      background:var(--footer);
-      color:#fff;
+      margin-top: 28px;
+      background: var(--footer);
+      color: #fff;
     }
     .footer-inner{
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:16px 18px;
-      font-size:12px;
-      line-height:1.8;
-      font-family:var(--font-main);
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 16px 18px;
+      font-size: 12px;
+      line-height: 1.8;
+      font-family: var(--font-main);
+    }
+
+    @media (max-width: 920px){
+      .search-wrap input{ width: 52vw; }
     }
   </style>
 </head>
 
 <body>
-<header>
-  <div class="header-inner">
-    <div class="brand">
-      <div class="title">トマトささみ</div>
-      <div class="subtitle">公式HP</div>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="title">トマトささみ</div>
+        <div class="subtitle">公式HP</div>
+      </div>
+
+      <div class="search-wrap">
+        <input id="keyword" type="text" placeholder="検索キーワードを入力してください" />
+        <button onclick="search()">検索</button>
+      </div>
     </div>
 
-    <div class="search-wrap">
-      <input id="keyword" type="text" placeholder="検索キーワードを入力してください">
-      <button onclick="search()">検索</button>
-    </div>
-  </div>
+    <nav>
+      <div class="nav-inner">
+        <a href="./index.html">トップ</a>
+        <a href="./members.html">メンバー</a>
+        <a href="./schedule.html">スケジュール</a>
+        <a href="./discord.html">ディスコード</a>
+        <a href="./contact.html">お問い合わせ</a>
+      </div>
+    </nav>
+  </header>
 
-  <nav>
-    <div class="nav-inner">
-      <a href="./index.html">トップ</a>
-      <a href="./members.html">メンバー</a>
-      <a href="./schedule.html">スケジュール</a>
-      <a href="./discord.html">ディスコード</a>
-      <a href="./contact.html">お問い合わせ</a>
-    </div>
-  </nav>
-</header>
+  <main>
+    <section class="page-title">
+      <h2>ディスコード</h2>
+      <p>トマトささみの活動は、主にDiscordサーバー上にて行われています。</p>
+    </section>
 
-<main>
-  <section class="page-title">
-    <h2>ディスコード</h2>
-    <p>トマトささみの活動は、主にDiscordサーバー上にて行われています。</p>
-  </section>
-
-  <section class="discord-box">
+    
+<section class="discord-box">
     <p>
       サーバーへの参加をご希望の方は、<br>
       以下のリンクよりアクセスしてください。
@@ -239,30 +226,33 @@
     </div>
   </section>
 
-  <div class="progress">4/108 (LV0)</div>
-</main>
+    
+    <div class="progress">4/108 (LV0)</div>
+  </main>
 
-<footer>
-  <div class="footer-inner">
-    <small>
-      このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
-      実在の人物・団体とは一切関係がありません。
-    </small>
-  </div>
-</footer>
+  <footer>
+    <div class="footer-inner">
+      <small>
+        このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
+        実在の人物・団体とは一切関係がありません。
+      </small>
+    </div>
+  </footer>
 
-<script>
-  function normalize(s){
-    return (s||"").trim().toLowerCase().replace(/\s+/g,"");
-  }
-  function search(){
-    const input = normalize(document.getElementById("keyword").value);
-    if(input==="みる"){ location.href="pages/observe.html"; return; }
-    location.href="error.html";
-  }
-  document.addEventListener("keydown",e=>{
-    if(e.key==="Enter") search();
-  });
-</script>
+  <script>
+    function normalize(s){
+      return (s || "").trim().toLowerCase().replace(/\s+/g, "");
+    }
+
+    function search(){
+      const input = normalize(document.getElementById("keyword").value);
+      if (input === "みる") { window.location.href = "pages/observe.html"; return; }
+      window.location.href = "error.html";
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") search();
+    });
+  </script>
 </body>
 </html>
