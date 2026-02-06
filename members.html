@@ -1,55 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>メンバー一覧｜トマトささみ</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>メンバー｜トマトささみ 公式HP</title>
 
   <style>
     :root{
-      --bg: #f7f7f0;          /* TOPと同じ色 */
-      --card: #ffffff;
-      --line: #f0e7e1;
-      --green: #0b6b3a;       /* 濃い緑（指定） */
-      --green-soft:#0b6b3a;
-      --muted: #2b5a3f;
+      --bg: #f7f7f0;
+      --band: #d9ead3;
+      --accent: #c0392b;
+      --text: #111;
+      --line: #cfcfcf;
+      --maxw: 1040px;
+
+      /* members用（濃い緑・POP） */
+      --green: #0b6b3a;
     }
 
     *{ box-sizing:border-box; }
     body{
       margin:0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
-      background:var(--bg);
-      color:#111;
+      font-family: "Hiragino Mincho ProN","Yu Mincho",serif;
+      background: var(--bg);
+      color: var(--text);
     }
 
+    /* ===== 共通ヘッダー（TOPと同じ） ===== */
     header{
-      padding:22px 16px 12px;
-      border-bottom:1px solid var(--line);
-      background: linear-gradient(180deg, #fff7f3 0%, #fff7f3 60%, rgba(255,247,243,0) 100%);
+      background:#fff;
+      border-bottom: 1px solid #ddd;
     }
-    .wrap{ max-width:1100px; margin:0 auto; padding:0 16px; }
-    h1{
-      margin:0 0 6px;
-      font-size:20px;
-      letter-spacing:.02em;
-      color:var(--green);
+    .header-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 18px 18px 12px;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      justify-content: space-between;
     }
-    .sub{
-      margin:0;
-      font-size:13px;
-      color:rgba(11,107,58,.85);
-      line-height:1.6;
+    .brand{
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+      min-width: 260px;
+    }
+    .brand .title{
+      font-size: 26px;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+    .brand .subtitle{
+      font-size: 12px;
+      opacity: 0.75;
+      letter-spacing: 0.06em;
     }
 
-    main{ padding:18px 0 34px; }
+    .search-wrap{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      width: min(520px, 100%);
+      justify-content:flex-end;
+    }
+    .search-wrap input{
+      width: 360px;
+      max-width: 55vw;
+      padding: 10px 12px;
+      border: 1px solid var(--accent);
+      outline: none;
+      font-size: 14px;
+      background:#fff;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    }
+    .search-wrap button{
+      padding: 10px 14px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color:#fff;
+      cursor:pointer;
+      font-size: 14px;
+      white-space: nowrap;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    }
+    .search-wrap button:hover{ opacity: .9; }
 
-    /* グリッド：画像例みたいに横に並ぶ */
+    nav{
+      background: var(--band);
+      border-top: 1px solid #cfe2c8;
+      border-bottom: 1px solid #cfe2c8;
+    }
+    .nav-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 18px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+    }
+    .nav-inner a{
+      text-decoration:none;
+      color:#0f2a0f;
+      padding: 10px 14px;
+      border-right: 1px solid rgba(0,0,0,0.12);
+      font-size: 14px;
+      letter-spacing: .04em;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    }
+    .nav-inner a:last-child{ border-right:none; }
+    .nav-inner a:hover{ opacity:.75; }
+
+    /* ===== メイン ===== */
+    main{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    /* ページ見出し */
+    .page-title{
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 18px;
+      margin: 10px 0 18px;
+    }
+    .page-title h2{
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: .06em;
+    }
+    .page-title p{
+      margin: 0;
+      font-size: 13px;
+      opacity: .8;
+      line-height: 1.8;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    }
+
+    /* ===== メンバー表示（AKB風カード） ===== */
     .grid{
       display:grid;
       grid-template-columns: repeat(5, 1fr);
       gap:14px;
       align-items:stretch;
+      margin-top: 14px;
     }
     @media (max-width:1100px){ .grid{ grid-template-columns: repeat(4, 1fr); } }
     @media (max-width:900px){  .grid{ grid-template-columns: repeat(3, 1fr); } }
@@ -57,14 +154,12 @@
     @media (max-width:420px){  .grid{ grid-template-columns: 1fr; } }
 
     .card{
-      background:var(--card);
+      background:#fff;
       border:1px solid var(--line);
       border-radius:18px;
       overflow:hidden;
-      box-shadow: 0 10px 24px rgba(0,0,0,.04);
     }
 
-    /* 画像エリア（いまはプレースホルダ） */
     .photo{
       width:100%;
       aspect-ratio: 1 / 1;
@@ -94,13 +189,14 @@
       letter-spacing:.04em;
       font-size:18px;
       user-select:none;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
     }
 
     .info{
       padding:12px 12px 14px;
       text-align:center;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
     }
-
     .name{
       margin:0;
       font-size:18px;
@@ -113,8 +209,8 @@
       font-size:12px;
       color:rgba(11,107,58,.75);
       font-weight:700;
+      min-height: 1.2em;
     }
-
     .one{
       margin:10px auto 0;
       display:inline-flex;
@@ -131,40 +227,110 @@
       letter-spacing:.01em;
     }
 
+    /* progress（TOPと同じ位置：ページ下部右） */
+    .progress{
+      text-align: right;
+      margin: 18px 4px 8px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #333;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    }
+
+    /* フッター（TOPと合わせるなら同じ赤帯でもOK） */
     footer{
-      padding:18px 0 26px;
-      color:rgba(11,107,58,.65);
-      font-size:12px;
-      text-align:center;
+      margin-top: 28px;
+      background: #b33226;
+      color: #fff;
+    }
+    .footer-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 16px 18px;
+      font-size: 12px;
+      line-height: 1.8;
+      position: relative;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    }
+
+    @media (max-width: 920px){
+      .search-wrap input{ width: 52vw; }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <div class="wrap">
-      <h1>メンバー一覧</h1>
-      <p class="sub">トマトささみ Discordサーバーのメンバー紹介です。</p>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="title">トマトささみ</div>
+        <div class="subtitle">公式HP</div>
+      </div>
+
+      <div class="search-wrap">
+        <input id="keyword" type="text" placeholder="検索キーワードを入力してください" />
+        <button onclick="search()">検索</button>
+      </div>
     </div>
+
+    <nav>
+      <div class="nav-inner">
+        <a href="./index.html">トップ</a>
+        <a href="./members.html">メンバー</a>
+        <a href="./schedule.html">スケジュール</a>
+        <a href="./discord.html">ディスコード</a>
+        <a href="./contact.html">お問い合わせ</a>
+      </div>
+    </nav>
   </header>
 
-  <main class="wrap">
+  <main>
+    <section class="page-title">
+      <h2>メンバー</h2>
+      <p>トマトささみ Discordサーバーのメンバー紹介です。</p>
+    </section>
+
     <div id="grid" class="grid"></div>
+
+    <!-- ★ ここに追加：TOPと同じ位置 -->
+    <div class="progress">2/108 (LV0)</div>
   </main>
 
-  <footer class="wrap">
-    © tomato-sasami community
+  <footer>
+    <div class="footer-inner">
+      <small>
+        このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
+        実在の人物・団体とは一切関係がありません。
+      </small>
+    </div>
   </footer>
 
   <script>
-    /**
-     * 画像の置き方：
-     *  assets/icons/ に
-     *   member-01.png, member-02.png ... のように置くと表示される
-     *  画像が無い場合は丸いプレースホルダ（頭文字）を表示
-     */
+    function normalize(s){
+      return (s || "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "");
+    }
 
-    // 並び順：意味を持たせないため、こちらで“適当に”シャッフルした固定順にしています（毎回変わらない）
+    function search(){
+      const input = normalize(document.getElementById("keyword").value);
+
+      // ★ ここはTOPと同じ検索テーブルに合わせて後で統一してOK
+      // 例：membersページからでも同じ検索が動くようにする
+      if (input === "みる") {
+        window.location.href = "pages/observe.html";
+        return;
+      }
+      window.location.href = "error.html";
+    }
+
+    // Enterキーで検索
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") search();
+    });
+
+    // ===== メンバー表示 =====
     const members = [
       { name: "ゆるた", kana: "" },
       { name: "Federn", kana: "" },
@@ -200,14 +366,12 @@
       { name: "ゆっこちゃん", kana: "" },
     ];
 
-    const oneLine = "特になし"; // 全員統一
-
+    const oneLine = "特になし";
     const grid = document.getElementById("grid");
 
     function pad2(n){ return String(n).padStart(2, "0"); }
 
     function initials(name){
-      // 日本語は最初の1〜2文字、英字は頭2文字くらい
       const s = (name || "").replace(/\s+/g,"").trim();
       if(!s) return "TS";
       const latin = s.match(/[A-Za-z]/g);
@@ -224,17 +388,16 @@
         .replaceAll("'","&#039;");
     }
 
-    // 描画
     members.forEach((m, i) => {
       const idx = i + 1;
-      const imgPath = `assets/icons/member-${pad2(idx)}.png`; // 後で画像入れるならこれに合わせると楽
+      const imgPath = `assets/icons/member-${pad2(idx)}.png`;
+
       const card = document.createElement("div");
       card.className = "card";
-
-      // 画像が存在しない場合は onerror でプレースホルダに切り替え
       card.innerHTML = `
         <div class="photo">
-          <img src="${imgPath}" alt="" onerror="this.style.display='none'; this.parentElement.querySelector('.ph').style.display='flex';">
+          <img src="${imgPath}" alt=""
+            onerror="this.style.display='none'; this.parentElement.querySelector('.ph').style.display='flex';">
           <div class="ph" style="display:none;">${escapeHtml(initials(m.name))}</div>
         </div>
         <div class="info">
