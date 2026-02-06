@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>検索結果｜トマトささみ 公式HP</title>
+
+  <style>
+    :root{
+      --bg: #f7f7f0;
+      --band: #d9ead3;
+      --accent: #c0392b;
+      --text: #111;
+      --line: #cfcfcf;
+      --footer: #b33226;
+      --maxw: 1040px;
+      --font-main: "Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+      --link: #0f2a0f;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: var(--font-main);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    header{ background:#fff; border-bottom:1px solid #ddd; }
+    .header-inner{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:18px 18px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{ display:flex; align-items:baseline; gap:10px; min-width:260px; }
+    .brand .title{ font-size:26px; letter-spacing:.08em; font-weight:700; }
+    .brand .subtitle{ font-size:12px; opacity:.75; letter-spacing:.06em; }
+
+    .search-wrap{ display:flex; align-items:center; gap:8px; width:min(520px,100%); justify-content:flex-end; }
+    .search-wrap input{
+      width:360px; max-width:55vw;
+      padding:10px 12px;
+      border:1px solid var(--accent);
+      font-size:14px;
+      background:#fff;
+      font-family:var(--font-main);
+    }
+    .search-wrap button{
+      padding:10px 14px;
+      border:1px solid var(--accent);
+      background:var(--accent);
+      color:#fff;
+      cursor:pointer;
+      font-size:14px;
+      white-space:nowrap;
+      font-family:var(--font-main);
+    }
+
+    nav{ background:var(--band); border-top:1px solid #cfe2c8; border-bottom:1px solid #cfe2c8; }
+    .nav-inner{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:0 18px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+      height:52px;
+    }
+    .nav-inner a{
+      text-decoration:none;
+      color:#0f2a0f;
+      padding:10px 14px;
+      border-right:1px solid rgba(0,0,0,.12);
+      font-size:14px;
+      letter-spacing:.04em;
+    }
+    .nav-inner a:last-child{ border-right:none; }
+
+    main{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:18px;
+      flex:1;
+    }
+
+    .page-title{
+      border:1px solid var(--line);
+      background:#fff;
+      padding:18px;
+      margin:10px 0 18px;
+    }
+    .page-title h2{ margin:0 0 8px; font-size:22px; letter-spacing:.06em; }
+    .page-title p{ margin:0; font-size:13px; opacity:.8; line-height:1.8; }
+
+    .result-box{
+      border:1px solid var(--line);
+      background:#fff;
+      padding:18px;
+    }
+    .result-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      border-bottom:1px solid #ddd;
+      padding-bottom:10px;
+      margin-bottom:10px;
+    }
+    .result-head .q{ font-size:16px; letter-spacing:.04em; }
+    .result-head .count{ font-size:12px; opacity:.75; }
+
+    ul.results{ list-style:none; padding:0; margin:0; }
+    ul.results li{
+      padding:12px 6px;
+      border-bottom:1px solid #eee;
+    }
+    ul.results li:last-child{ border-bottom:none; }
+    .hit a{
+      color:var(--link);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(15,42,15,.6);
+    }
+    .hit a:hover{ opacity:.75; }
+    .meta{
+      margin-top:6px;
+      font-size:12px;
+      opacity:.75;
+      line-height:1.6;
+    }
+    .empty{
+      padding:14px 6px;
+      font-size:13px;
+      line-height:2;
+      opacity:.9;
+    }
+
+    .progress{
+      text-align:right;
+      margin:18px 4px 8px;
+      font-size:12px;
+      letter-spacing:.08em;
+      color:#333;
+    }
+
+    footer{ margin-top:0; background:var(--footer); color:#fff; }
+    .footer-inner{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:16px 18px;
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    @media (max-width: 920px){
+      .search-wrap input{ width:52vw; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="title">トマトささみ</div>
+      <div class="subtitle">公式HP</div>
+    </div>
+
+    <div class="search-wrap">
+      <input id="keyword" type="text" placeholder="検索キーワードを入力してください" />
+      <button onclick="search()">検索</button>
+    </div>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="./index.html">トップ</a>
+      <a href="./members.html">メンバー</a>
+      <a href="./schedule.html">スケジュール</a>
+      <a href="./discord.html">ディスコード</a>
+      <a href="./contact.html">お問い合わせ</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="page-title">
+    <h2>検索結果</h2>
+    <p>検索キーワード：<span id="qtext">（未入力）</span></p>
+  </section>
+
+  <section class="result-box">
+    <div class="result-head">
+      <div class="q" id="qhead">検索結果：</div>
+      <div class="count" id="count">0件</div>
+    </div>
+
+    <ul class="results" id="results"></ul>
+
+    <div class="empty" id="empty" style="display:none;">
+      申し訳ございませんが、お探しの情報に関する記事は見つかりませんでした。<br>
+      1〜2のキーワードを検索することで、資料が見つかる場合があります。<br>
+     
+      当サイトの検索仕様上、3つ以上のキーワードで見つかる記事はありません。
+    </div>
+  </section>
+
+  <div class="progress">0/108 (LV0)</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <small>
+      このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
+      実在の人物・団体とは一切関係がありません。
+    </small>
+  </div>
+</footer>
+
+<script>
+  function norm(s){
+    return (s||"").trim().toLowerCase().replace(/\s+/g,"");
+  }
+
+  // ▼「検索辞書」：ここを増やしていけば検索結果が増える
+  // key: 検索語（正規化後） / value: [{title,url,desc}]
+  const INDEX = {
+    "みる": [
+      { title:"観測（抜粋）", url:"pages/observe.html", desc:"記録の参照に関する断片。"}
+    ],
+    "観測": [
+      { title:"観測（抜粋）", url:"pages/observe.html", desc:"観測という語が初めて出現する資料。"}
+    ],
+    "ミカ": [
+      { title:"（準備中）ミカ関連資料", url:"error.html?q=%E3%83%9F%E3%82%AB", desc:"該当資料は現在、整理中です。"}
+    ]
+  };
+
+  // URLパラメータ q
+  const params = new URLSearchParams(location.search);
+  const raw = (params.get("q") || "").trim();
+  const q = norm(raw);
+
+  document.getElementById("qtext").textContent = raw ? raw : "（未入力）";
+  document.getElementById("qhead").textContent = "検索結果：" + (raw ? raw : "（未入力）");
+
+  const list = document.getElementById("results");
+  const empty = document.getElementById("empty");
+  const count = document.getElementById("count");
+
+  const hits = INDEX[q] || [];
+
+  if(hits.length === 0){
+    empty.style.display = "block";
+    count.textContent = "0件";
+  }else{
+    count.textContent = hits.length + "件";
+    hits.forEach(item=>{
+      const li = document.createElement("li");
+      li.className = "hit";
+      li.innerHTML = `
+        <a href="${item.url}">${item.title}</a>
+        <div class="meta">${item.desc || ""}</div>
+      `;
+      list.appendChild(li);
+    });
+  }
+
+  // ヘッダー検索：results.html を使う
+  function search(){
+    const input = norm(document.getElementById("keyword").value);
+    location.href = "results.html?q=" + encodeURIComponent(input);
+  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") search();
+  });
+</script>
+</body>
+</html>
