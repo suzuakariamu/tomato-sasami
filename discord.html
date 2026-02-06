@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>スケジュール｜トマトささみ 公式HP</title>
+  <title>トマトささみ 公式HP</title>
 
   <style>
     :root{
@@ -117,37 +117,123 @@
       padding: 18px;
     }
 
-    .page-title{
+    .notice{
+      display:flex;
+      align-items:center;
+      border: 1px solid var(--accent);
+      background:#fff;
+      margin: 16px 0 22px;
+    }
+    .notice .label{
+      min-width: 110px;
+      text-align:center;
+      padding: 10px 12px;
+      background: var(--accent);
+      color:#fff;
+      font-size: 13px;
+      letter-spacing: .08em;
+    }
+    .notice .body{
+      padding: 10px 14px;
+      font-size: 13px;
+      line-height: 1.7;
+      width: 100%;
+    }
+    .notice .body a{
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent);
+    }
+
+    .hero{
       border: 1px solid var(--line);
       background: #fff;
       padding: 18px;
-      margin: 10px 0 18px;
     }
-    .page-title h2{
-      margin: 0 0 8px;
-      font-size: 22px;
+    .hero .headline{
+      font-size: 26px;
       letter-spacing: .06em;
+      margin: 4px 0 14px;
     }
-    .page-title p{
-      margin: 0;
+    .hero .subline{
       font-size: 13px;
-      opacity: .8;
+      opacity: .78;
+      margin-bottom: 14px;
       line-height: 1.8;
     }
+    .hero .img{
+      height: 320px;
+      border: 1px solid #ddd;
+      background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.0));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#666;
+      font-size: 13px;
+    }
 
-    .calendar-wrap{
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .card{
       border: 1px solid var(--line);
       background:#fff;
-      padding: 10px;
+      padding: 14px;
     }
-    .calendar-frame{
+    .card h3{
+      font-size: 14px;
+      margin: 4px 0 12px;
+      letter-spacing: .06em;
+      border-bottom: 2px solid #274d27;
+      padding-bottom: 8px;
+    }
+    .card .thumb{
+      height: 140px;
+      border: 1px solid #ddd;
+      background: #fafafa;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#777;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    .btn{
+      display:inline-block;
       width: 100%;
-      height: 780px;
-      border: 0;
+      text-align:center;
+      padding: 10px 10px;
+      border: 1px solid #1f3f1f;
+      background: #fff;
+      color:#1f3f1f;
+      text-decoration:none;
+      font-size: 13px;
+      font-family: var(--font-main);
     }
-    @media (max-width: 700px){
-      .calendar-frame{ height: 680px; }
+    .btn:hover{ background:#f1f7f1; }
+
+    .yt{
+      border: 1px solid var(--line);
+      background:#fff;
+      padding: 14px;
     }
+    .yt h3{
+      font-size: 14px;
+      margin: 4px 0 10px;
+      letter-spacing: .06em;
+      border-bottom: 2px solid #274d27;
+      padding-bottom: 8px;
+    }
+    .yt .frame{
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      border: 1px solid #ddd;
+      background:#000;
+    }
+    .yt iframe{ width: 100%; height: 100%; border: 0; }
 
     .progress{
       text-align: right;
@@ -169,10 +255,12 @@
       padding: 16px 18px;
       font-size: 12px;
       line-height: 1.8;
+      position: relative;
       font-family: var(--font-main);
     }
 
     @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
       .search-wrap input{ width: 52vw; }
     }
   </style>
@@ -204,10 +292,34 @@
   </header>
 
   <main>
-   
+<section class="page-title">
+      <h2>ディスコード</h2>
+      <p>
+        トマトささみの活動は、主にDiscordサーバー上で行われています。<br>
+      </p>
+    </section>
+
+    <section class="discord-wrap">
+      <p>
+        サーバーへの参加をご希望の方は、<br>
+        以下のリンクよりアクセスしてください。
+      </p>
+
+      <!-- ▼ 実際のDiscord招待URLに差し替え -->
+      <a class="discord-btn" href="https://discord.gg/XXXXXXXX" target="_blank" rel="noopener">
+        サーバーはこちら
+      </a>
+
+      <div class="note">
+        ※ サーバー内での発言・行動は、<br>
+        運営および管理の目的で記録される場合があります。
+      </div>
+    </section>
+
+    <div class="progress">4/108 (LV0)</div>
   </main>
 
-<footer>
+  <footer>
     <div class="footer-inner">
       <small>
         このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
@@ -223,7 +335,10 @@
 
     function search(){
       const input = normalize(document.getElementById("keyword").value);
-      if (input === "みる") { window.location.href = "pages/observe.html"; return; }
+      if (input === "みる") {
+        window.location.href = "pages/observe.html";
+        return;
+      }
       window.location.href = "error.html";
     }
 
