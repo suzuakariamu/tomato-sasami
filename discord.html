@@ -231,13 +231,33 @@
 </main>
 
 <footer>
-  <div class="footer-inner">
-    <small>
-      このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
-      実在の人物・団体とは一切関係がありません。
-    </small>
-  </div>
-</footer>
+    <div class="footer-inner">
+      <small>
+        このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
+        実在の人物・団体とは一切関係がありません。
+      </small>
+    </div>
+  </footer>
+
+  <script>
+    function normalize(s){
+      return (s || "").trim().toLowerCase().replace(/\s+/g, "");
+    }
+
+    function search(){
+      const input = normalize(document.getElementById("keyword").value);
+      if (input === "みる") {
+        window.location.href = "pages/observe.html";
+        return;
+      }
+      window.location.href = "error.html";
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") search();
+    });
+  </script>
+</body>
 
 <script>
 function normalize(s){
