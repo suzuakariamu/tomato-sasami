@@ -12,8 +12,8 @@
       --accent: #c0392b;
       --text: #111;
       --line: #cfcfcf;
-      --maxw: 1040px;
       --footer: #b33226;
+      --maxw: 1040px;
       --font-main: "Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
     }
 
@@ -25,7 +25,6 @@
       color: var(--text);
     }
 
-    /* ===== ヘッダー ===== */
     header{
       background:#fff;
       border-bottom: 1px solid #ddd;
@@ -36,8 +35,8 @@
       padding: 18px 18px 12px;
       display:flex;
       align-items:center;
-      justify-content: space-between;
       gap:16px;
+      justify-content: space-between;
     }
     .brand{
       display:flex;
@@ -71,7 +70,7 @@
       outline: none;
       font-size: 14px;
       background:#fff;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+      font-family: var(--font-main);
     }
     .search-wrap button{
       padding: 10px 14px;
@@ -81,7 +80,7 @@
       cursor:pointer;
       font-size: 14px;
       white-space: nowrap;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+      font-family: var(--font-main);
     }
     .search-wrap button:hover{ opacity: .9; }
 
@@ -107,12 +106,11 @@
       border-right: 1px solid rgba(0,0,0,0.12);
       font-size: 14px;
       letter-spacing: .04em;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+      font-family: var(--font-main);
     }
     .nav-inner a:last-child{ border-right:none; }
     .nav-inner a:hover{ opacity:.75; }
 
-    /* ===== メイン ===== */
     main{
       max-width: var(--maxw);
       margin: 0 auto;
@@ -135,10 +133,8 @@
       font-size: 13px;
       opacity: .8;
       line-height: 1.8;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
     }
 
-    /* ===== Googleカレンダー ===== */
     .calendar-wrap{
       border: 1px solid var(--line);
       background:#fff;
@@ -153,17 +149,15 @@
       .calendar-frame{ height: 680px; }
     }
 
-    /* ===== ページ番号 ===== */
     .progress{
       text-align: right;
       margin: 18px 4px 8px;
       font-size: 12px;
       letter-spacing: 0.08em;
       color: #333;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+      font-family: var(--font-main);
     }
 
-    /* ===== フッター ===== */
     footer{
       margin-top: 28px;
       background: var(--footer);
@@ -175,7 +169,7 @@
       padding: 16px 18px;
       font-size: 12px;
       line-height: 1.8;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+      font-family: var(--font-main);
     }
 
     @media (max-width: 920px){
@@ -191,6 +185,7 @@
         <div class="title">トマトささみ</div>
         <div class="subtitle">公式HP</div>
       </div>
+
       <div class="search-wrap">
         <input id="keyword" type="text" placeholder="検索キーワードを入力してください" />
         <button onclick="search()">検索</button>
@@ -217,13 +212,12 @@
     <section class="calendar-wrap">
       <iframe
         class="calendar-frame"
-        src="https://calendar.google.com/calendar/u/1/r?pli=1"
+        src="https://calendar.google.com/calendar/u/1?cid=dG9tYXRvc2FzYW1pLmxvdmVAZ21haWwuY29t"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </section>
 
-    <!-- ★ ページナンバー（固定位置） -->
     <div class="progress">3/108 (LV0)</div>
   </main>
 
@@ -238,20 +232,12 @@
 
   <script>
     function normalize(s){
-      return (s || "")
-        .trim()
-        .toLowerCase()
-        .replace(/\s+/g, "");
+      return (s || "").trim().toLowerCase().replace(/\s+/g, "");
     }
 
     function search(){
       const input = normalize(document.getElementById("keyword").value);
-
-      // 検索処理はTOPと共通にする前提
-      if (input === "みる") {
-        window.location.href = "pages/observe.html";
-        return;
-      }
+      if (input === "みる") { window.location.href = "pages/observe.html"; return; }
       window.location.href = "error.html";
     }
 
