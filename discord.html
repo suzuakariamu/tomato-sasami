@@ -24,6 +24,11 @@
       font-family: var(--font-main);
       background: var(--bg);
       color: var(--text);
+
+      /* ★追加：フッターずれ防止 */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header{
@@ -107,6 +112,9 @@
       max-width:var(--maxw);
       margin:0 auto;
       padding:18px;
+
+      /* ★追加：余白をmainが吸う */
+      flex: 1;
     }
 
     .page-title{
@@ -168,7 +176,8 @@
     }
 
     footer{
-      margin-top:28px;
+      /* ★重要：margin-topは0にする */
+      margin-top: 0;
       background:var(--footer);
       color:#fff;
     }
@@ -179,10 +188,6 @@
       font-size:12px;
       line-height:1.8;
       font-family:var(--font-main);
-    }
-
-    @media(max-width:920px){
-      .search-wrap input{ width:52vw; }
     }
   </style>
 </head>
@@ -215,7 +220,7 @@
 <main>
   <section class="page-title">
     <h2>ディスコード</h2>
-    <p>トマトささみの活動は、主にDiscordサーバー上で行われています。</p>
+    <p>トマトささみの活動は、主にDiscordサーバー上にて行われています。</p>
   </section>
 
   <section class="discord-box">
@@ -224,8 +229,7 @@
       以下のリンクよりアクセスしてください。
     </p>
 
-    <!-- ▼ ここに実際の招待URLを入れる -->
-    <a class="discord-btn" href="https://discord.gg/XXXXXXXX" target="_blank">
+    <a class="discord-btn" href="https://discord.gg/XXXXXXXX" target="_blank" rel="noopener">
       サーバーはこちら
     </a>
 
