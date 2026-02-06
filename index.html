@@ -7,33 +7,24 @@
 
   <style>
     :root{
-      --bg: #f7f7f0;         /* 全体のうすい生成り */
-      --band: #d9ead3;       /* 薄い緑（帯） */
-      --accent: #c0392b;     /* 赤（検索・強調） */
+      --bg: #f7f7f0;
+      --band: #d9ead3;
+      --accent: #c0392b;
       --text: #111;
-      --border: #2b2b2b;
-      --nav: #e9f3e4;        /* ナビ背景（薄緑系） */
-      --footer: #b33226;     /* 下帯の赤 */
+      --line: #cfcfcf;
+      --footer: #b33226;
       --maxw: 1040px;
+      --font-main: "Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
     }
-.progress{
-  text-align: right;
-  margin: 18px 4px 8px;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  color: #333;
-}
 
-    
-    * { box-sizing: border-box; }
+    *{ box-sizing:border-box; }
     body{
       margin:0;
-      font-family: "Hiragino Mincho ProN","Yu Mincho",serif;
+      font-family: var(--font-main);
       background: var(--bg);
       color: var(--text);
     }
 
-    /* ヘッダー */
     header{
       background:#fff;
       border-bottom: 1px solid #ddd;
@@ -64,7 +55,6 @@
       letter-spacing: 0.06em;
     }
 
-    /* 右上検索 */
     .search-wrap{
       display:flex;
       align-items:center;
@@ -80,6 +70,7 @@
       outline: none;
       font-size: 14px;
       background:#fff;
+      font-family: var(--font-main);
     }
     .search-wrap button{
       padding: 10px 14px;
@@ -89,25 +80,25 @@
       cursor:pointer;
       font-size: 14px;
       white-space: nowrap;
+      font-family: var(--font-main);
     }
     .search-wrap button:hover{ opacity: .9; }
 
-    /* ナビ（薄緑の帯） */
     nav{
       background: var(--band);
       border-top: 1px solid #cfe2c8;
       border-bottom: 1px solid #cfe2c8;
     }
-.nav-inner{
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 18px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center; /* ★ これを追加 */
-  height: 52px;
-}
+    .nav-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 18px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+    }
     .nav-inner a{
       text-decoration:none;
       color:#0f2a0f;
@@ -115,18 +106,17 @@
       border-right: 1px solid rgba(0,0,0,0.12);
       font-size: 14px;
       letter-spacing: .04em;
+      font-family: var(--font-main);
     }
     .nav-inner a:last-child{ border-right:none; }
     .nav-inner a:hover{ opacity:.75; }
 
-    /* メイン */
     main{
       max-width: var(--maxw);
       margin: 0 auto;
       padding: 18px;
     }
 
-    /* お知らせ枠（検索と同じ赤） */
     .notice{
       display:flex;
       align-items:center;
@@ -155,9 +145,8 @@
       border-bottom: 1px dotted var(--accent);
     }
 
-    /* ヒーロー（画像エリア：いったんプレースホルダ） */
     .hero{
-      border: 1px solid #cfcfcf;
+      border: 1px solid var(--line);
       background: #fff;
       padding: 18px;
     }
@@ -168,15 +157,14 @@
     }
     .hero .subline{
       font-size: 13px;
-      opacity: .75;
+      opacity: .78;
       margin-bottom: 14px;
       line-height: 1.8;
     }
     .hero .img{
       height: 320px;
       border: 1px solid #ddd;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.0));
+      background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.0));
       display:flex;
       align-items:center;
       justify-content:center;
@@ -184,7 +172,6 @@
       font-size: 13px;
     }
 
-    /* 3カラム */
     .grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -192,7 +179,7 @@
       margin-top: 24px;
     }
     .card{
-      border: 1px solid #cfcfcf;
+      border: 1px solid var(--line);
       background:#fff;
       padding: 14px;
     }
@@ -224,12 +211,12 @@
       color:#1f3f1f;
       text-decoration:none;
       font-size: 13px;
+      font-family: var(--font-main);
     }
     .btn:hover{ background:#f1f7f1; }
 
-    /* YouTube埋め込み */
     .yt{
-      border: 1px solid #cfcfcf;
+      border: 1px solid var(--line);
       background:#fff;
       padding: 14px;
     }
@@ -246,13 +233,17 @@
       border: 1px solid #ddd;
       background:#000;
     }
-    .yt iframe{
-      width: 100%;
-      height: 100%;
-      border: 0;
+    .yt iframe{ width: 100%; height: 100%; border: 0; }
+
+    .progress{
+      text-align: right;
+      margin: 18px 4px 8px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #333;
+      font-family: var(--font-main);
     }
 
-    /* フッター（赤帯） */
     footer{
       margin-top: 28px;
       background: var(--footer);
@@ -265,21 +256,9 @@
       font-size: 12px;
       line-height: 1.8;
       position: relative;
-    }
-    .lv{
-      position:absolute;
-      right: 18px;
-      top: 16px;
-      font-size: 12px;
-      opacity: .95;
-      letter-spacing: .06em;
-    }
-    .footer-inner small{
-      display:block;
-      opacity: .95;
+      font-family: var(--font-main);
     }
 
-    /* レスポンシブ */
     @media (max-width: 920px){
       .grid{ grid-template-columns: 1fr; }
       .search-wrap input{ width: 52vw; }
@@ -313,7 +292,6 @@
   </header>
 
   <main>
-    <!-- お知らせ枠 -->
     <div class="notice">
       <div class="label">お知らせ</div>
       <div class="body">
@@ -321,7 +299,6 @@
       </div>
     </div>
 
-    <!-- メイン画像エリア -->
     <section class="hero">
       <div class="headline">美しい心で、輝く未来へ</div>
       <div class="subline">
@@ -331,15 +308,12 @@
       <div class="img">（ここにトップ画像を置けます）</div>
     </section>
 
-    <!-- 下段：左にYouTube、右に3カード -->
     <div class="grid">
       <div class="yt">
         <h3>構成理念</h3>
         <div class="frame">
-          <!-- ▼ここに公式YouTubeの埋め込みURLを入れる（後で差し替えOK） -->
-          <!-- 例: https://www.youtube.com/embed/VIDEO_ID -->
           <iframe
-            src="https://www.youtube.com/embed/UC2L-T3ivQBbLaTeiWIwft2w"
+            src="https://www.youtube.com/embed/VIDEO_ID"
             title="トマトささみ 公式YouTube"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
@@ -360,15 +334,11 @@
       </div>
     </div>
 
-<div class="progress">
-  1/108 (LV0)
-</div>
-    
+    <div class="progress">1/108 (LV0)</div>
   </main>
 
   <footer>
     <div class="footer-inner">
-
       <small>
         このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
         実在の人物・団体とは一切関係がありません。
@@ -378,26 +348,18 @@
 
   <script>
     function normalize(s){
-      return (s || "")
-        .trim()
-        .toLowerCase()
-        .replace(/\s+/g, "");
+      return (s || "").trim().toLowerCase().replace(/\s+/g, "");
     }
 
     function search(){
       const input = normalize(document.getElementById("keyword").value);
-
-      // ▼テスト用：最初の正解ワード
       if (input === "みる") {
         window.location.href = "pages/observe.html";
         return;
       }
-
-      // ▼エラー
       window.location.href = "error.html";
     }
 
-    // Enterキーで検索
     document.addEventListener("keydown", (e) => {
       if (e.key === "Enter") search();
     });
