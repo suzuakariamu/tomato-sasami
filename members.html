@@ -3,37 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>トマトささみ 公式HP</title>
+  <title>メンバー｜トマトささみ 公式HP</title>
 
   <style>
     :root{
-      --bg: #f7f7f0;         /* 全体のうすい生成り */
-      --band: #d9ead3;       /* 薄い緑（帯） */
-      --accent: #c0392b;     /* 赤（検索・強調） */
+      --bg: #f7f7f0;
+      --band: #d9ead3;
+      --accent: #c0392b;
       --text: #111;
-      --border: #2b2b2b;
-      --nav: #e9f3e4;        /* ナビ背景（薄緑系） */
-      --footer: #b33226;     /* 下帯の赤 */
+      --line: #cfcfcf;
+      --footer: #b33226;
       --maxw: 1040px;
+      --font-main: "Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+
+      --green: #0b6b3a; /* 濃い緑（名前用） */
     }
-.progress{
-  text-align: right;
-  margin: 18px 4px 8px;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  color: #333;
-}
 
-    
-    * { box-sizing: border-box; }
+    *{ box-sizing:border-box; }
     body{
-  margin:0;
-  font-family: var(--font-main);
-  background: var(--bg);
-  color: var(--text);
-}
+      margin:0;
+      font-family: var(--font-main);
+      background: var(--bg);
+      color: var(--text);
+    }
 
-    /* ヘッダー */
     header{
       background:#fff;
       border-bottom: 1px solid #ddd;
@@ -64,7 +57,6 @@
       letter-spacing: 0.06em;
     }
 
-    /* 右上検索 */
     .search-wrap{
       display:flex;
       align-items:center;
@@ -80,6 +72,7 @@
       outline: none;
       font-size: 14px;
       background:#fff;
+      font-family: var(--font-main);
     }
     .search-wrap button{
       padding: 10px 14px;
@@ -89,25 +82,25 @@
       cursor:pointer;
       font-size: 14px;
       white-space: nowrap;
+      font-family: var(--font-main);
     }
     .search-wrap button:hover{ opacity: .9; }
 
-    /* ナビ（薄緑の帯） */
     nav{
       background: var(--band);
       border-top: 1px solid #cfe2c8;
       border-bottom: 1px solid #cfe2c8;
     }
-.nav-inner{
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 18px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center; /* ★ これを追加 */
-  height: 52px;
-}
+    .nav-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 18px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+    }
     .nav-inner a{
       text-decoration:none;
       color:#0f2a0f;
@@ -115,18 +108,17 @@
       border-right: 1px solid rgba(0,0,0,0.12);
       font-size: 14px;
       letter-spacing: .04em;
+      font-family: var(--font-main);
     }
     .nav-inner a:last-child{ border-right:none; }
     .nav-inner a:hover{ opacity:.75; }
 
-    /* ===== メイン ===== */
     main{
       max-width: var(--maxw);
       margin: 0 auto;
       padding: 18px;
     }
 
-    /* ページ見出し */
     .page-title{
       border: 1px solid var(--line);
       background: #fff;
@@ -143,10 +135,9 @@
       font-size: 13px;
       opacity: .8;
       line-height: 1.8;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
     }
 
-    /* ===== メンバー表示（AKB風カード） ===== */
+    /* メンバーグリッド */
     .grid{
       display:grid;
       grid-template-columns: repeat(5, 1fr);
@@ -165,12 +156,10 @@
       border-radius:18px;
       overflow:hidden;
     }
-
     .photo{
       width:100%;
       aspect-ratio: 1 / 1;
       background: #f4efe9;
-      position:relative;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -195,13 +184,11 @@
       letter-spacing:.04em;
       font-size:18px;
       user-select:none;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+      font-family: var(--font-main);
     }
-
     .info{
       padding:12px 12px 14px;
       text-align:center;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
     }
     .name{
       margin:0;
@@ -213,14 +200,13 @@
     .kana{
       margin:6px 0 0;
       font-size:12px;
-      color:rgba(11,107,58,.75);
+      opacity:.75;
       font-weight:700;
       min-height: 1.2em;
     }
     .one{
       margin:10px auto 0;
       display:inline-flex;
-      gap:6px;
       align-items:center;
       justify-content:center;
       padding:6px 10px;
@@ -233,20 +219,18 @@
       letter-spacing:.01em;
     }
 
-    /* progress（TOPと同じ位置：ページ下部右） */
     .progress{
       text-align: right;
       margin: 18px 4px 8px;
       font-size: 12px;
       letter-spacing: 0.08em;
       color: #333;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+      font-family: var(--font-main);
     }
 
-    /* フッター（TOPと合わせるなら同じ赤帯でもOK） */
     footer{
       margin-top: 28px;
-      background: #b33226;
+      background: var(--footer);
       color: #fff;
     }
     .footer-inner{
@@ -255,8 +239,7 @@
       padding: 16px 18px;
       font-size: 12px;
       line-height: 1.8;
-      position: relative;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+      font-family: var(--font-main);
     }
 
     @media (max-width: 920px){
@@ -298,7 +281,6 @@
 
     <div id="grid" class="grid"></div>
 
-    <!-- ★ ここに追加：TOPと同じ位置 -->
     <div class="progress">2/108 (LV0)</div>
   </main>
 
@@ -313,30 +295,15 @@
 
   <script>
     function normalize(s){
-      return (s || "")
-        .trim()
-        .toLowerCase()
-        .replace(/\s+/g, "");
+      return (s || "").trim().toLowerCase().replace(/\s+/g, "");
     }
-
     function search(){
       const input = normalize(document.getElementById("keyword").value);
-
-      // ★ ここはTOPと同じ検索テーブルに合わせて後で統一してOK
-      // 例：membersページからでも同じ検索が動くようにする
-      if (input === "みる") {
-        window.location.href = "pages/observe.html";
-        return;
-      }
+      if (input === "みる") { window.location.href = "pages/observe.html"; return; }
       window.location.href = "error.html";
     }
+    document.addEventListener("keydown", (e) => { if (e.key === "Enter") search(); });
 
-    // Enterキーで検索
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") search();
-    });
-
-    // ===== メンバー表示 =====
     const members = [
       { name: "ゆるた", kana: "" },
       { name: "Federn", kana: "" },
@@ -376,7 +343,6 @@
     const grid = document.getElementById("grid");
 
     function pad2(n){ return String(n).padStart(2, "0"); }
-
     function initials(name){
       const s = (name || "").replace(/\s+/g,"").trim();
       if(!s) return "TS";
@@ -384,7 +350,6 @@
       if(latin && latin.length >= 2) return (latin[0] + latin[1]).toUpperCase();
       return s.slice(0,2);
     }
-
     function escapeHtml(str){
       return (str||"").toString()
         .replaceAll("&","&amp;")
@@ -397,7 +362,6 @@
     members.forEach((m, i) => {
       const idx = i + 1;
       const imgPath = `assets/icons/member-${pad2(idx)}.png`;
-
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
