@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>メンバー一覧｜トマトささみ</title>
+
+  <style>
+    :root{
+      --bg: #fff7f3;          /* ほんのりピンクでPOP */
+      --card: #ffffff;
+      --line: #f0e7e1;
+      --green: #0b6b3a;       /* 濃い緑（指定） */
+      --green-soft:#0b6b3a;
+      --muted: #2b5a3f;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+      background:var(--bg);
+      color:#111;
+    }
+
+    header{
+      padding:22px 16px 12px;
+      border-bottom:1px solid var(--line);
+      background: linear-gradient(180deg, #fff7f3 0%, #fff7f3 60%, rgba(255,247,243,0) 100%);
+    }
+    .wrap{ max-width:1100px; margin:0 auto; padding:0 16px; }
+    h1{
+      margin:0 0 6px;
+      font-size:20px;
+      letter-spacing:.02em;
+      color:var(--green);
+    }
+    .sub{
+      margin:0;
+      font-size:13px;
+      color:rgba(11,107,58,.85);
+      line-height:1.6;
+    }
+
+    main{ padding:18px 0 34px; }
+
+    /* グリッド：画像例みたいに横に並ぶ */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:14px;
+      align-items:stretch;
+    }
+    @media (max-width:1100px){ .grid{ grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width:900px){  .grid{ grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width:650px){  .grid{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width:420px){  .grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,.04);
+    }
+
+    /* 画像エリア（いまはプレースホルダ） */
+    .photo{
+      width:100%;
+      aspect-ratio: 1 / 1;
+      background: #f4efe9;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .ph{
+      width:58%;
+      height:58%;
+      border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, rgba(11,107,58,.18), rgba(11,107,58,.06));
+      border:1px solid rgba(11,107,58,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:rgba(11,107,58,.9);
+      font-weight:800;
+      letter-spacing:.04em;
+      font-size:18px;
+      user-select:none;
+    }
+
+    .info{
+      padding:12px 12px 14px;
+      text-align:center;
+    }
+
+    .name{
+      margin:0;
+      font-size:18px;
+      font-weight:900;
+      color:var(--green);
+      letter-spacing:.02em;
+    }
+    .kana{
+      margin:6px 0 0;
+      font-size:12px;
+      color:rgba(11,107,58,.75);
+      font-weight:700;
+    }
+
+    .one{
+      margin:10px auto 0;
+      display:inline-flex;
+      gap:6px;
+      align-items:center;
+      justify-content:center;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px dashed rgba(11,107,58,.35);
+      color:rgba(11,107,58,.85);
+      background: rgba(11,107,58,.05);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.01em;
+    }
+
+    footer{
+      padding:18px 0 26px;
+      color:rgba(11,107,58,.65);
+      font-size:12px;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <h1>メンバー一覧</h1>
+      <p class="sub">トマトささみ Discordサーバーのメンバー紹介です。</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <footer class="wrap">
+    © tomato-sasami community
+  </footer>
+
+  <script>
+    /**
+     * 画像の置き方：
+     *  assets/icons/ に
+     *   member-01.png, member-02.png ... のように置くと表示される
+     *  画像が無い場合は丸いプレースホルダ（頭文字）を表示
+     */
+
+    // 並び順：意味を持たせないため、こちらで“適当に”シャッフルした固定順にしています（毎回変わらない）
+    const members = [
+      { name: "ゆるた", kana: "" },
+      { name: "Federn", kana: "" },
+      { name: "玄ノ乃羊", kana: "くろののよう" },
+      { name: "ぺりあ", kana: "" },
+      { name: "椎南纏", kana: "しいなまとい" },
+      { name: "gengen", kana: "" },
+      { name: "りょうちゃん", kana: "" },
+      { name: "まつぼいす", kana: "" },
+      { name: "紫ノ朝がお", kana: "しのとも" },
+      { name: "オバケさん[OBK]", kana: "" },
+
+      { name: "ちひろ", kana: "" },
+      { name: "prkr", kana: "" },
+      { name: "蒼宮ゅと", kana: "そうきゅう" },
+      { name: "しかた", kana: "" },
+      { name: "やまだだっく", kana: "" },
+      { name: "うほ", kana: "" },
+      { name: "Yim4", kana: "" },
+      { name: "雨宮ともり", kana: "" },
+      { name: "へこ", kana: "" },
+      { name: "ふじさん", kana: "" },
+
+      { name: "九月三日", kana: "ながつきみか" },
+      { name: "ある", kana: "" },
+      { name: "みくイカ", kana: "" },
+      { name: "あづき", kana: "" },
+      { name: "ぱく", kana: "" },
+      { name: "ごくもんちゃん", kana: "" },
+      { name: "jerro", kana: "" },
+      { name: "鈴燈あむ", kana: "すずあかり" },
+      { name: "あかり", kana: "" },
+      { name: "ゆっこちゃん", kana: "" },
+    ];
+
+    const oneLine = "特になし"; // 全員統一
+
+    const grid = document.getElementById("grid");
+
+    function pad2(n){ return String(n).padStart(2, "0"); }
+
+    function initials(name){
+      // 日本語は最初の1〜2文字、英字は頭2文字くらい
+      const s = (name || "").replace(/\s+/g,"").trim();
+      if(!s) return "TS";
+      const latin = s.match(/[A-Za-z]/g);
+      if(latin && latin.length >= 2) return (latin[0] + latin[1]).toUpperCase();
+      return s.slice(0,2);
+    }
+
+    function escapeHtml(str){
+      return (str||"").toString()
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    // 描画
+    members.forEach((m, i) => {
+      const idx = i + 1;
+      const imgPath = `assets/icons/member-${pad2(idx)}.png`; // 後で画像入れるならこれに合わせると楽
+      const card = document.createElement("div");
+      card.className = "card";
+
+      // 画像が存在しない場合は onerror でプレースホルダに切り替え
+      card.innerHTML = `
+        <div class="photo">
+          <img src="${imgPath}" alt="" onerror="this.style.display='none'; this.parentElement.querySelector('.ph').style.display='flex';">
+          <div class="ph" style="display:none;">${escapeHtml(initials(m.name))}</div>
+        </div>
+        <div class="info">
+          <p class="name">${escapeHtml(m.name)}</p>
+          <p class="kana">${escapeHtml(m.kana ? m.kana : "　")}</p>
+          <div class="one">${escapeHtml(oneLine)}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
