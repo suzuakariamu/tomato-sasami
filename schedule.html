@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>スケジュール｜トマトささみ 公式HP</title>
+
+  <style>
+    :root{
+      --bg: #f7f7f0;
+      --band: #d9ead3;
+      --accent: #c0392b;
+      --text: #111;
+      --line: #cfcfcf;
+      --maxw: 1040px;
+      --footer: #b33226;
+      --font-main: "Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: var(--font-main);
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* ===== ヘッダー ===== */
+    header{
+      background:#fff;
+      border-bottom: 1px solid #ddd;
+    }
+    .header-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 18px 18px 12px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+      min-width: 260px;
+    }
+    .brand .title{
+      font-size: 26px;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+    .brand .subtitle{
+      font-size: 12px;
+      opacity: 0.75;
+      letter-spacing: 0.06em;
+    }
+
+    .search-wrap{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      width: min(520px, 100%);
+      justify-content:flex-end;
+    }
+    .search-wrap input{
+      width: 360px;
+      max-width: 55vw;
+      padding: 10px 12px;
+      border: 1px solid var(--accent);
+      outline: none;
+      font-size: 14px;
+      background:#fff;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    }
+    .search-wrap button{
+      padding: 10px 14px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color:#fff;
+      cursor:pointer;
+      font-size: 14px;
+      white-space: nowrap;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    }
+    .search-wrap button:hover{ opacity: .9; }
+
+    nav{
+      background: var(--band);
+      border-top: 1px solid #cfe2c8;
+      border-bottom: 1px solid #cfe2c8;
+    }
+    .nav-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 18px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+    }
+    .nav-inner a{
+      text-decoration:none;
+      color:#0f2a0f;
+      padding: 10px 14px;
+      border-right: 1px solid rgba(0,0,0,0.12);
+      font-size: 14px;
+      letter-spacing: .04em;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    }
+    .nav-inner a:last-child{ border-right:none; }
+    .nav-inner a:hover{ opacity:.75; }
+
+    /* ===== メイン ===== */
+    main{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    .page-title{
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 18px;
+      margin: 10px 0 18px;
+    }
+    .page-title h2{
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: .06em;
+    }
+    .page-title p{
+      margin: 0;
+      font-size: 13px;
+      opacity: .8;
+      line-height: 1.8;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    }
+
+    /* ===== Googleカレンダー ===== */
+    .calendar-wrap{
+      border: 1px solid var(--line);
+      background:#fff;
+      padding: 10px;
+    }
+    .calendar-frame{
+      width: 100%;
+      height: 780px;
+      border: 0;
+    }
+    @media (max-width: 700px){
+      .calendar-frame{ height: 680px; }
+    }
+
+    /* ===== ページ番号 ===== */
+    .progress{
+      text-align: right;
+      margin: 18px 4px 8px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #333;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    }
+
+    /* ===== フッター ===== */
+    footer{
+      margin-top: 28px;
+      background: var(--footer);
+      color: #fff;
+    }
+    .footer-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 16px 18px;
+      font-size: 12px;
+      line-height: 1.8;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+    }
+
+    @media (max-width: 920px){
+      .search-wrap input{ width: 52vw; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="title">トマトささみ</div>
+        <div class="subtitle">公式HP</div>
+      </div>
+      <div class="search-wrap">
+        <input id="keyword" type="text" placeholder="検索キーワードを入力してください" />
+        <button onclick="search()">検索</button>
+      </div>
+    </div>
+
+    <nav>
+      <div class="nav-inner">
+        <a href="./index.html">トップ</a>
+        <a href="./members.html">メンバー</a>
+        <a href="./schedule.html">スケジュール</a>
+        <a href="./discord.html">ディスコード</a>
+        <a href="./contact.html">お問い合わせ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-title">
+      <h2>スケジュール</h2>
+      <p>トマトささみのイベント予定・活動日程を掲載しています。</p>
+    </section>
+
+    <section class="calendar-wrap">
+      <iframe
+        class="calendar-frame"
+        src="https://calendar.google.com/calendar/u/1/r?pli=1"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+
+    <!-- ★ ページナンバー（固定位置） -->
+    <div class="progress">3/108 (LV0)</div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <small>
+        このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
+        実在の人物・団体とは一切関係がありません。
+      </small>
+    </div>
+  </footer>
+
+  <script>
+    function normalize(s){
+      return (s || "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "");
+    }
+
+    function search(){
+      const input = normalize(document.getElementById("keyword").value);
+
+      // 検索処理はTOPと共通にする前提
+      if (input === "みる") {
+        window.location.href = "pages/observe.html";
+        return;
+      }
+      window.location.href = "error.html";
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") search();
+    });
+  </script>
+</body>
+</html>
