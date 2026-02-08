@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>トマトささみ 公式HP</title>
+  <title>スケジュール｜トマトささみ 公式HP</title>
 
   <style>
     :root{
@@ -117,123 +117,37 @@
       padding: 18px;
     }
 
-    .notice{
-      display:flex;
-      align-items:center;
-      border: 1px solid var(--accent);
-      background:#fff;
-      margin: 16px 0 22px;
-    }
-    .notice .label{
-      min-width: 110px;
-      text-align:center;
-      padding: 10px 12px;
-      background: var(--accent);
-      color:#fff;
-      font-size: 13px;
-      letter-spacing: .08em;
-    }
-    .notice .body{
-      padding: 10px 14px;
-      font-size: 13px;
-      line-height: 1.7;
-      width: 100%;
-    }
-    .notice .body a{
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px dotted var(--accent);
-    }
-
-    .hero{
+    .page-title{
       border: 1px solid var(--line);
       background: #fff;
       padding: 18px;
+      margin: 10px 0 18px;
     }
-    .hero .headline{
-      font-size: 26px;
+    .page-title h2{
+      margin: 0 0 8px;
+      font-size: 22px;
       letter-spacing: .06em;
-      margin: 4px 0 14px;
     }
-    .hero .subline{
+    .page-title p{
+      margin: 0;
       font-size: 13px;
-      opacity: .78;
-      margin-bottom: 14px;
+      opacity: .8;
       line-height: 1.8;
     }
-    .hero .img{
-      height: 320px;
-      border: 1px solid #ddd;
-      background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.0));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#666;
-      font-size: 13px;
-    }
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-    .card{
+    .calendar-wrap{
       border: 1px solid var(--line);
       background:#fff;
-      padding: 14px;
+      padding: 10px;
     }
-    .card h3{
-      font-size: 14px;
-      margin: 4px 0 12px;
-      letter-spacing: .06em;
-      border-bottom: 2px solid #274d27;
-      padding-bottom: 8px;
-    }
-    .card .thumb{
-      height: 140px;
-      border: 1px solid #ddd;
-      background: #fafafa;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#777;
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-    .btn{
-      display:inline-block;
+    .calendar-frame{
       width: 100%;
-      text-align:center;
-      padding: 10px 10px;
-      border: 1px solid #1f3f1f;
-      background: #fff;
-      color:#1f3f1f;
-      text-decoration:none;
-      font-size: 13px;
-      font-family: var(--font-main);
+      height: 780px;
+      border: 0;
     }
-    .btn:hover{ background:#f1f7f1; }
-
-    .yt{
-      border: 1px solid var(--line);
-      background:#fff;
-      padding: 14px;
+    @media (max-width: 700px){
+      .calendar-frame{ height: 680px; }
     }
-    .yt h3{
-      font-size: 14px;
-      margin: 4px 0 10px;
-      letter-spacing: .06em;
-      border-bottom: 2px solid #274d27;
-      padding-bottom: 8px;
-    }
-    .yt .frame{
-      aspect-ratio: 16 / 9;
-      width: 100%;
-      border: 1px solid #ddd;
-      background:#000;
-    }
-    .yt iframe{ width: 100%; height: 100%; border: 0; }
 
     .progress{
       text-align: right;
@@ -255,12 +169,10 @@
       padding: 16px 18px;
       font-size: 12px;
       line-height: 1.8;
-      position: relative;
       font-family: var(--font-main);
     }
 
     @media (max-width: 920px){
-      .grid{ grid-template-columns: 1fr; }
       .search-wrap input{ width: 52vw; }
     }
   </style>
@@ -291,36 +203,50 @@
     </nav>
   </header>
 
-
 <main>
-      <section class="page-title">
-      <h2>お問い合わせ</h2>
-      <p>トマトささみに関するご質問・ご連絡は、以下のフォームよりお願いいたします。</p>
-    </section>
+  <!-- タイトル枠（メンバーと同じスタイル） -->
+  <section class="page-title">
+    <h2>お問い合わせ</h2>
+    <p>トマトささみに関するご質問・ご連絡はこちらのフォームよりお送りください。</p>
+  </section>
 
 
-  <section class="form-box">
-    <form>
+  <!-- フォーム枠（白い資料枠） -->
+  <section class="form-wrap">
+
+    <form id="record-form">
+
       <div class="form-group">
         <label>お名前</label>
-        <input type="text" placeholder="お名前を入力してください">
+        <input type="text" placeholder="表示名をご入力ください">
       </div>
 
       <div class="form-group">
         <label>メールアドレス</label>
-        <input type="email" placeholder="メールアドレスを入力してください">
+        <input type="email" placeholder="example@mail.com">
       </div>
 
       <div class="form-group">
         <label>お問い合わせ内容</label>
-        <textarea placeholder="お問い合わせ内容をご記入ください"></textarea>
+        <textarea rows="6" placeholder="内容をご入力ください"></textarea>
       </div>
 
-      <button class="submit-btn" type="button">送信</button>
+      <div class="form-btn">
+        <button type="submit">記録する</button>
+      </div>
+
+      <p class="form-note">
+        ※入力内容は、運営管理および記録の目的で保存される場合があります。
+      </p>
+
     </form>
+
   </section>
 
+
+  <!-- ページ番号（固定位置用） -->
   <div class="progress">5/108 (LV0)</div>
+
 </main>
 
   <footer>
