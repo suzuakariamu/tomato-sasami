@@ -228,19 +228,21 @@
   </footer>
 
   <script>
-    function normalize(s){
-      return (s || "").trim().toLowerCase().replace(/\s+/g, "");
-    }
+  function normalize(s){
+    return (s || "")
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "");
+  }
 
-    function search(){
-      const input = normalize(document.getElementById("keyword").value);
-      if (input === "みる") { window.location.href = "pages/observe.html"; return; }
-      window.location.href = "error.html";
-    }
+  function search(){
+    const input = normalize(document.getElementById("keyword").value);
+    location.href = "results.html?q=" + encodeURIComponent(input);
+  }
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") search();
-    });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") search();
+  });
   </script>
 </body>
 </html>
