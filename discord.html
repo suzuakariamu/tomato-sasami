@@ -289,10 +289,10 @@
       .replace(/\s+/g, "");
   }
 
-  function search(){
-    const input = normalize(document.getElementById("keyword").value);
-    location.href = "results.html?q=" + encodeURIComponent(input);
-  }
+function search(){
+  const input = (document.getElementById("keyword").value || "").trim();
+  location.href = "results.html?q=" + encodeURIComponent(input);
+}
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Enter") search();
