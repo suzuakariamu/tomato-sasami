@@ -323,16 +323,21 @@
   <div class="progress">5/108 (LV0)</div>
 </main>
 
-<footer>
-  <div class="footer-inner">
-    このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
-    実在の人物・団体とは一切関係がありません。
-  </div>
-</footer>
+  <footer>
+    <div class="footer-inner">
+      <small>
+        このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
+        実在の人物・団体とは一切関係がありません。
+      </small>
+    </div>
+  </footer>
 
-<script>
+  <script>
   function normalize(s){
-    return (s || "").trim().toLowerCase().replace(/\s+/g, "");
+    return (s || "")
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "");
   }
 
   function search(){
@@ -343,7 +348,6 @@
   document.addEventListener("keydown", (e) => {
     if (e.key === "Enter") search();
   });
-</script>
-
+  </script>
 </body>
 </html>
