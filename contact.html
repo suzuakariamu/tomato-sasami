@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>お問い合わせ｜トマトささみ 公式HP</title>
+
+  <style>
+    :root{
+      --bg: #f7f7f0;
+      --band: #d9ead3;
+      --accent: #c0392b;
+      --text: #111;
+      --line: #cfcfcf;
+      --footer: #b33226;
+      --maxw: 1040px;
+      --font-main: "Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: var(--font-main);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* ===== ヘッダー ===== */
+    header{
+      background:#fff;
+      border-bottom: 1px solid #ddd;
+    }
+    .header-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 18px 18px 12px;
+      display:flex;
+      align-items:center;
+      gap:16px;
+      justify-content: space-between;
+    }
+    .brand{
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+      min-width: 260px;
+    }
+    .brand .title{
+      font-size: 26px;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+    .brand .subtitle{
+      font-size: 12px;
+      opacity: 0.75;
+      letter-spacing: 0.06em;
+    }
+
+    .search-wrap{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      width: min(520px, 100%);
+      justify-content:flex-end;
+    }
+    .search-wrap input{
+      width: 360px;
+      max-width: 55vw;
+      padding: 10px 12px;
+      border: 1px solid var(--accent);
+      font-size: 14px;
+      background:#fff;
+      font-family: var(--font-main);
+    }
+    .search-wrap button{
+      padding: 10px 14px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color:#fff;
+      cursor:pointer;
+      font-size: 14px;
+      font-family: var(--font-main);
+    }
+
+    /* ===== ナビ ===== */
+    nav{
+      background: var(--band);
+      border-top: 1px solid #cfe2c8;
+      border-bottom: 1px solid #cfe2c8;
+    }
+    .nav-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 18px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+      height:52px;
+    }
+    .nav-inner a{
+      text-decoration:none;
+      color:#0f2a0f;
+      padding:10px 14px;
+      border-right:1px solid rgba(0,0,0,0.12);
+      font-size:14px;
+    }
+    .nav-inner a:last-child{ border-right:none; }
+
+    /* ===== メイン ===== */
+    main{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 18px;
+      flex:1;
+    }
+
+    .page-title{
+      border: 1px solid var(--line);
+      background:#fff;
+      padding:18px;
+      margin:10px 0 18px;
+    }
+    .page-title h2{
+      margin:0 0 8px;
+      font-size:22px;
+      letter-spacing:.06em;
+    }
+    .page-title p{
+      margin:0;
+      font-size:13px;
+      opacity:.8;
+      line-height:1.8;
+    }
+
+    /* ===== フォーム ===== */
+    .form-box{
+      border:1px solid var(--line);
+      background:#fff;
+      padding:24px;
+    }
+
+    .form-group{
+      margin-bottom:18px;
+    }
+
+    label{
+      display:block;
+      font-size:14px;
+      margin-bottom:6px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea{
+      width:100%;
+      padding:10px;
+      border:1px solid #bbb;
+      font-family: var(--font-main);
+      font-size:14px;
+      background:#fff;
+    }
+
+    textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    .submit-btn{
+      background: var(--accent);
+      color:#fff;
+      border:none;
+      padding:12px 28px;
+      font-size:14px;
+      cursor:pointer;
+      font-family: var(--font-main);
+    }
+
+    .submit-btn:hover{
+      opacity:0.9;
+    }
+
+    /* ===== ページ番号 ===== */
+    .progress{
+      text-align:right;
+      margin:18px 4px 8px;
+      font-size:12px;
+      letter-spacing:0.08em;
+      color:#333;
+    }
+
+    /* ===== フッター ===== */
+    footer{
+      background: var(--footer);
+      color:#fff;
+    }
+    .footer-inner{
+      max-width: var(--maxw);
+      margin:0 auto;
+      padding:16px 18px;
+      font-size:12px;
+      line-height:1.8;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="title">トマトささみ</div>
+      <div class="subtitle">公式HP</div>
+    </div>
+
+    <div class="search-wrap">
+      <input id="keyword" type="text" placeholder="検索キーワードを入力してください" />
+      <button onclick="search()">検索</button>
+    </div>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="./index.html">トップ</a>
+      <a href="./members.html">メンバー</a>
+      <a href="./schedule.html">スケジュール</a>
+      <a href="./discord.html">ディスコード</a>
+      <a href="./contact.html">お問い合わせ</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="page-title">
+    <h2>お問い合わせ</h2>
+    <p>
+      トマトささみに関するご質問・ご連絡は、以下のフォームよりお願いいたします。
+    </p>
+  </section>
+
+  <section class="form-box">
+    <form>
+      <div class="form-group">
+        <label>お名前</label>
+        <input type="text" placeholder="お名前を入力してください">
+      </div>
+
+      <div class="form-group">
+        <label>メールアドレス</label>
+        <input type="email" placeholder="メールアドレスを入力してください">
+      </div>
+
+      <div class="form-group">
+        <label>お問い合わせ内容</label>
+        <textarea placeholder="お問い合わせ内容をご記入ください"></textarea>
+      </div>
+
+      <button class="submit-btn" type="button">送信</button>
+    </form>
+  </section>
+
+  <div class="progress">5/108 (LV0)</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    このWebサイトの内容は考察コンテンツのために作られたフィクションであり、<br>
+    実在の人物・団体とは一切関係がありません。
+  </div>
+</footer>
+
+<script>
+  function normalize(s){
+    return (s || "").trim().toLowerCase().replace(/\s+/g, "");
+  }
+
+  function search(){
+    const input = normalize(document.getElementById("keyword").value);
+    location.href = "results.html?q=" + encodeURIComponent(input);
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") search();
+  });
+</script>
+
+</body>
+</html>
