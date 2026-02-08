@@ -175,6 +175,40 @@
     @media (max-width: 920px){
       .search-wrap input{ width: 52vw; }
     }
+    /* コンテンツ白枠（お問い合わせと同じ役割） */
+.content-wrap{
+  border: 1px solid #cfcfcf;
+  background: #fff;
+  padding: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.9;
+}
+
+/* ボタンエリア */
+.discord-btn-area{
+  margin: 18px 0;
+}
+
+/* Discordボタン */
+.discord-btn{
+  display: inline-block;
+  padding: 12px 34px;
+  border: 1px solid #1f3f1f;
+  color: #1f3f1f;
+  text-decoration: none;
+  font-size: 14px;
+}
+.discord-btn:hover{
+  background: #f1f7f1;
+}
+
+/* 注意文 */
+.note{
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 10px;
+}
 
   </style>
 </head>
@@ -205,26 +239,35 @@
   </header>
 
   <main>
-    <section class="page-title">
-      <h2>ディスコード</h2>
-      <p>トマトささみの活動は、主にDiscordサーバー上にて行われています。</p>
-    </section>
+   
+  <!-- タイトル枠 -->
+  <section class="page-title">
+    <h2>ディスコード</h2>
+    <p>トマトささみの活動は、主にDiscordサーバー上で行われています。</p>
+  </section>
 
-   <section class="discord-box">
+
+  <!-- ▼参加案内を白枠で囲う -->
+  <section class="content-wrap">
+
     <p>
       サーバーへの参加をご希望の方は、<br>
       以下のリンクよりアクセスしてください。
     </p>
 
-    <a class="discord-btn" href="https://discord.gg/XXXXXXXX" target="_blank" rel="noopener">
-      サーバーはこちら
-    </a>
+    <div class="discord-btn-area">
+      <a href="ここにDiscord招待URL" target="_blank" class="discord-btn">
+        サーバーはこちら
+      </a>
+    </div>
 
-    <div class="note">
+    <p class="note">
       ※ サーバー内での発言・行動は、<br>
       運営および管理の目的で記録される場合があります。
-    </div>
+    </p>
+
   </section>
+
 
   <div class="progress">4/108 (LV0)</div>
 </main>
