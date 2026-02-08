@@ -294,15 +294,21 @@
   </footer>
 
   <script>
-    function normalize(s){
-      return (s || "").trim().toLowerCase().replace(/\s+/g, "");
-    }
-    function search(){
-      const input = normalize(document.getElementById("keyword").value);
-      if (input === "みる") { window.location.href = "pages/observe.html"; return; }
-      window.location.href = "error.html";
-    }
-    document.addEventListener("keydown", (e) => { if (e.key === "Enter") search(); });
+  function normalize(s){
+    return (s || "")
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "");
+  }
+
+  function search(){
+    const input = normalize(document.getElementById("keyword").value);
+    location.href = "results.html?q=" + encodeURIComponent(input);
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") search();
+  });
 
     const members = [
       { name: "ゆるた", kana: "" },
